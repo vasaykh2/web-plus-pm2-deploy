@@ -4,7 +4,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import { errors } from 'celebrate';
-// import cors from 'cors';
+import cors from 'cors';
+// eslint-disable-next-line import/no-unresolved
+import helmet from 'helmet';
 import errorHandler from './middlewares/error-handler';
 import { DB_ADDRESS } from './config';
 import routes from './routes';
@@ -14,7 +16,16 @@ const app = express();
 mongoose.connect(DB_ADDRESS);
 
 // Только для локальных тестов. Не используйте это в продакшене
-// app.use(cors())
+app.use(
+  cors({
+    origin: [
+      'https://nomoremesto.nomoredomains.work',
+      'http://nomoremesto.nomoredomains.work',
+    ],
+    optionsSuccessStatus: 200,
+  }),
+);
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
