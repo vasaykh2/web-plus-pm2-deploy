@@ -139,7 +139,7 @@ class Api {
   }
   }
   // Замените на адрес вашего бэкенда
-  const api = new Api('https://api.mesto.vasaykh.nomoredomainsicu.ru');
+  const api = new Api('http://api.mesto.vasaykh.nomoredomainsicu.ru');
   
   export default api;
   

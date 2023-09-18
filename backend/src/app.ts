@@ -19,8 +19,8 @@ mongoose.connect(DB_ADDRESS);
 app.use(
   cors({
     origin: [
-      'https://nomoremesto.nomoredomains.work',
-      'http://nomoremesto.nomoredomains.work',
+      'https://mesto.vasaykh.nomoredomainsicu.ru',
+      'http://mesto.vasaykh.nomoredomainsicu.ru',
     ],
     optionsSuccessStatus: 200,
   }),
