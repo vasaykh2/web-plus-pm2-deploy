@@ -15,14 +15,14 @@ module.exports = {
   // Настройка деплоя
   deploy: {
     production: {
-      key: '~/.ssh/id_rsa.pub',
       user: DEPLOY_USER,
       host: DEPLOY_HOST,
       ref: DEPLOY_REF,
       repo: DEPLOY_REPO,
       path: DEPLOY_PATH,
       'pre-deploy-local': `bash scripts/deployEnv.sh ${DEPLOY_USER}@${DEPLOY_HOST} ${DEPLOY_PATH}`,
-      'post-deploy': 'cd backend  && npm ci && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
+      'post-deploy':
+        'cd backend  && npm ci && npm run build && pm2 startOrRestart ecosystem.config.js --env production',
     },
   },
 };
